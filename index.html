@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="//bellala.org/favicons/apple-touch-icon.png?v=PYAnWEX75A">
+    <link rel="icon" type="image/png" sizes="32x32" href="//bellala.org/favicons/favicon-32x32.png?v=PYAnWEX75A">
+    <link rel="icon" type="image/png" sizes="16x16" href="//bellala.org/favicons/favicon-16x16.png?v=PYAnWEX75A">
+    <link rel="manifest" href="//bellala.org/favicons/site.webmanifest?v=PYAnWEX75A">
+    <link rel="mask-icon" href="//bellala.org/favicons/safari-pinned-tab.svg?v=PYAnWEX75A" color="#8fbcbb">
+    <link rel="shortcut icon" href="//bellala.org/favicons/favicon.ico?v=PYAnWEX75A">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta name="apple-mobile-web-app-title" content="~">
+    <meta name="application-name" content="~">
+    <meta name="msapplication-TileColor" content="#8fbcbb">
+    <meta name="msapplication-config" content="//bellala.org/favicons/browserconfig.xml?v=PYAnWEX75A">
+    <meta name="theme-color" content="#ffffff">
+    <!-- <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css"> -->
+    <!-- <script src="//bellala.org/js/marked.min.js"></script> -->
+    <!-- <script src="//bellala.org/js/scripts.min.js"></script> -->
+    <style>
+        :root {
+            /* Colors - Nord */
+            --white: #FFF;
+            --nord0: #2e3440;
+            --nord1: #3b4252;
+            --nord2: #434c5e;
+            --nord3: #4c566a;
+            --nord4: #d8dee9;
+            --nord5: #e5e9f0;
+            --nord6: #eceff4;
+            --nord7: #8fbcbb;
+            --nord8: #88c0d0;
+            --nord9: #81a1c1;
+            --nord10: #5e81ac;
+            --nord11: #bf616a;
+            --nord12: #d08770;
+            --nord13: #ebcb8b;
+            --nord14: #a3be8c;
+            --nord15: #b48ead;
+
+            /* defaults */
+            --color-bg: var(--nord0);
+            --color-link: var(--nord8);
+            --color-txt: var(--nord4);
+            --color-txt-accent: var(--nord15);
+            --color-accent: var(--nord7);
+            --color-opa: rgba(216, 222, 233,0.6);
+        }
+
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /*border: 2px solid #FFF;*/
+        }
+
+        html {
+            align-items: center;
+            background-color: var(--color-bg);
+            color: var(--color-txt);
+            display: flex;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+            line-height: 1.4;
+            font-size: 1.3rem;
+            height: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+        body{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            max-width: 50rem;
+            margin: 1rem;
+            /*max-height: 30rem; */
+            grid-column-gap: 3rem;
+            justify-items: center;
+            align-items: center;
+        }
+        .banner{
+            grid-column-start: 1;
+            width: 100%;
+            height: 100%;
+        }
+        .banner img{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+        .container{
+            grid-column-start: 2;
+            width: 100%;
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-opa);
+        }
+        .row:last-child{
+            border-bottom: none;
+        }
+        #search{
+            /*text-align: left;*/
+            justify-content: initial;
+            font-family: monospace;
+            font-size:0.75rem;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+            outline: none;
+        }
+        a:focus,
+        a:hover {
+            color: var(--color-link);
+        }
+        h1{
+            font-size: 1.4rem;
+        }
+        h2, li:first-child {
+            font-weight: bold;
+            font-size: inherit;
+            border-bottom: 1px solid var(--color-accent);
+            margin-bottom: 0.25rem;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0 1rem 0.5rem 1rem;
+            padding: 0;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+        }
+        .time, .weather{
+            width: 50%;
+        }
+        form{
+            width: 100%;
+        }
+        form input[type="search"] {
+          background-color: transparent;
+          border: none;
+          font: inherit;
+          color: inherit;
+          text-align: left;
+          width: 100%;
+          outline: none;
+        }
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: var(--color-txt);
+            opacity: 1;  /*Firefox */
+        }
+        @media only screen and (max-width: 768px){
+            .banner{
+                display: none;
+            }
+            html{
+                height: initial;
+            }
+            body, nav{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+    marked.setOptions({
+        headerIds: false
+    });
+
+    function readFile(file, out) {
+        var http = new XMLHttpRequest();
+        http.open('get', file);
+        http.onreadystatechange = function() {
+            document.getElementById(out).innerHTML = marked(http.responseText);
+        };
+        http.send();
+    }
+
+    let tzone = "America/New_York";
+
+    function updateClock() {
+        var now = new Date(), // current date
+            months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; // you get the idea
+        var h = now.getHours(),
+            m = now.getMinutes(),
+            s = now.getSeconds(),
+            mo = now.getMonth(),
+            da = now.getDate();
+
+        // set the content of the element with the ID time to the formatted string
+        // document.getElementById('time').innerHTML = [date, time].join(' ');
+        document.getElementById('date').innerHTML = now.toLocaleString('en-US', { timeZone: tzone, dateStyle: 'full' });
+        document.getElementById('time').innerHTML = now.toLocaleString('en-US', { timeZone: tzone, timeStyle: 'medium' });
+        setTimeout(updateClock, 1000);
+    }
+    readFile('links.md', 'nav');
+    fetch('https://api.weather.gov/gridpoints/BOX/63,50/forecast', {
+            method: 'GET'
+        })
+        .then(function(response) { return response.json(); })
+        .then(function(json) {
+            console.log(json.properties.periods[0]);
+            now = json.properties.periods[0];
+            forecast = [now.temperature + ' &#176;' + now.temperatureUnit, now.shortForecast].join(' ');
+            updateClock();
+            document.getElementById('temp').innerHTML = now.temperature + '&#176;';
+            document.getElementById('cond').innerHTML = now.shortForecast;
+        });
+    </script>
+</head>
+
+<body>
+    <div class='banner'>
+        <img id='banner' src="blueno.gif">
+    </div>
+    <div class='container'>
+        <div class="row" id='search'>
+            <form action="https://duckduckgo.com/" method="POST">
+                <input id="q" name="q" type="search" placeholder="start.bellala.org">
+            </form>
+        </div>
+        <div class="row">
+            <div class="time">
+                <h1 id='time'></h1>
+                <p id='date'></p>
+            </div>
+            <div class="weather" id='weather'>
+                <h1 id="temp"></h1>
+                <p id='cond'></p>
+            </div>
+        </div>
+        <div class="row">
+            <nav id='nav'></nav>
+        </div>
+    </div>
+</body>
+
+</html>
