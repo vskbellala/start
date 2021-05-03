@@ -153,17 +153,27 @@
           text-align: left;
           width: 100%;
           outline: none;
+          caret-color: var(--color-accent);
         }
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: var(--color-txt);
             opacity: 1;  /*Firefox */
         }
+        .hide{
+            display: none;
+        }
+        .show{
+            display: initial;
+        }
         @media only screen and (max-width: 768px){
-            .banner{
+            .banner, .time{
                 display: none;
             }
             html{
                 height: initial;
+            }
+            .weather{
+                width: 100%;
             }
             body, nav{
                 display: flex;
@@ -214,6 +224,8 @@
             updateClock();
             document.getElementById('temp').innerHTML = now.temperature + '&#176;';
             document.getElementById('cond').innerHTML = now.shortForecast;
+            var element = document.getElementById("info");
+            element.classList.remove("hide");
         });
     </script>
 </head>
@@ -228,12 +240,12 @@
                 <input id="q" name="q" type="search" placeholder="bellala.org/start">
             </form>
         </div>
-        <div class="row">
+        <div class="row hide" id='info'>
             <div class="time">
                 <h1 id='time'></h1>
                 <p id='date'></p>
             </div>
-            <div class="weather" id='weather'>
+            <div class="weather">
                 <h1 id="temp"></h1>
                 <p id='cond'></p>
             </div>
