@@ -12,15 +12,11 @@
     <link rel="manifest" href="//bellala.org/favicons/site.webmanifest?v=PYAnWEX75A">
     <link rel="mask-icon" href="//bellala.org/favicons/safari-pinned-tab.svg?v=PYAnWEX75A" color="#8fbcbb">
     <link rel="shortcut icon" href="//bellala.org/favicons/favicon.ico?v=PYAnWEX75A">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <meta name="apple-mobile-web-app-title" content="~">
     <meta name="application-name" content="~">
     <meta name="msapplication-TileColor" content="#8fbcbb">
     <meta name="msapplication-config" content="//bellala.org/favicons/browserconfig.xml?v=PYAnWEX75A">
     <meta name="theme-color" content="#ffffff">
-    <!-- <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css"> -->
-    <!-- <script src="//bellala.org/js/marked.min.js"></script> -->
-    <!-- <script src="//bellala.org/js/scripts.min.js"></script> -->
     <style>
         :root {
             /* Colors - Nord */
@@ -43,12 +39,12 @@
             --nord15: #b48ead;
 
             /* defaults */
-            --color-bg: var(--nord0);
-            --color-link: var(--nord8);
-            --color-txt: var(--nord4);
-            --color-txt-accent: var(--nord15);
-            --color-accent: var(--nord7);
-            --color-opa: rgba(216, 222, 233,0.6);
+            --color-bg: var(--white);
+            --color-link: var(--nord15);
+            --color-txt: var(--nord0);
+            /*--color-txt-accent: var(--nord15);*/
+            --color-accent: var(--nord10);
+            /*--color-opa: rgba(216, 222, 233,0.6);*/
         }
 
         *{
@@ -57,7 +53,6 @@
             padding: 0;
             /*border: 2px solid #FFF;*/
         }
-
         html {
             align-items: center;
             background-color: var(--color-bg);
@@ -68,15 +63,15 @@
             font-size: 1.3rem;
             height: 100%;
             justify-content: center;
-            text-align: center;
+            text-align: left;
         }
         body{
             display: grid;
-            grid-template-columns: 1fr 3fr;
-            max-width: 50rem;
+            grid-template-columns: 1fr 4fr;
+            width: 50rem;
             margin: 1rem;
             /*max-height: 30rem; */
-            grid-column-gap: 3rem;
+            grid-column-gap: 2rem;
             justify-items: center;
             align-items: center;
         }
@@ -84,27 +79,14 @@
             grid-column-start: 1;
             width: 100%;
             height: 100%;
-        }
-        .banner img{
-            width:100%;
-            height:100%;
-            object-fit: cover;
-            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-image: url(banner.webp);
         }
         .container{
             grid-column-start: 2;
             width: 100%;
-        }
-        .row{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--color-opa);
-        }
-        .row:last-child{
-            border-bottom: none;
         }
         #search{
             /*text-align: left;*/
@@ -122,25 +104,15 @@
             color: var(--color-link);
         }
         h1{
-            font-size: 1.4rem;
-        }
-        h2, li:first-child {
-            font-weight: bold;
-            font-size: inherit;
-            border-bottom: 1px solid var(--color-accent);
-            margin-bottom: 0.25rem;
-        }
-        ul {
-            list-style-type: none;
-            margin: 0 1rem 0.5rem 1rem;
-            padding: 0;
+            font-size: 3.5rem;
         }
         nav{
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
         }
-        .time, .weather{
-            width: 50%;
+        #quote{
+            quotes: '"' '"';
+            font-size: 1rem;
         }
         form{
             width: 100%;
@@ -159,99 +131,109 @@
             color: var(--color-txt);
             opacity: 1;  /*Firefox */
         }
-        .hide{
-            display: none;
+        blockquote{
+            padding: 0.75rem;
+            padding-right: 0;
+            border-left: 4px solid var(--color-txt);
         }
-        .show{
-            display: initial;
+        #author{
+            color: var(--color-accent);
+        }
+        #author::before{
+            content: "—";
+            margin-right: 0.5rem;
+            margin-left: 1.25rem;
+        }
+
+        .container > div{
+            padding: 0.5rem 0;
+        }
+        div.info{
+            display: flex;
+            justify-content: space-between;
+        }
+        div.info > i{
+            border-left: 2px solid var(--color-txt);
+            border-right: 2px solid var(--color-txt);
+            margin: 0 0.5rem;
         }
         @media only screen and (max-width: 768px){
-            .banner, .time{
-                display: none;
-            }
-            html{
+            html,body{
                 height: initial;
+                width:  initial;
             }
-            .weather{
-                width: 100%;
+            div.info > i,#search{
+                display:  none;
             }
-            body, nav{
+            body,div.info{
                 display: flex;
                 flex-direction: column;
+            }
+            div.banner{
+                height: 20vh;
             }
         }
     </style>
     <script type="text/javascript">
-    marked.setOptions({
-        headerIds: false
-    });
-
-    function readFile(file, out) {
-        var http = new XMLHttpRequest();
-        http.open('get', file);
-        http.onreadystatechange = function() {
-            document.getElementById(out).innerHTML = marked(http.responseText);
-        };
-        http.send();
-    }
-
-    let tzone = "America/New_York";
+    let tzone = "America/New_York"; //Eastern Time
+    let wzone = '63,50'; //Providence
+    const wurl = 'https://api.weather.gov/gridpoints/BOX/' + wzone + '/forecast';
 
     function updateClock() {
-        var now = new Date(), // current date
-            months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; // you get the idea
-        var h = now.getHours(),
-            m = now.getMinutes(),
-            s = now.getSeconds(),
-            mo = now.getMonth(),
-            da = now.getDate();
-
-        // set the content of the element with the ID time to the formatted string
-        // document.getElementById('time').innerHTML = [date, time].join(' ');
+        var now = new Date(); // current date
         document.getElementById('date').innerHTML = now.toLocaleString('en-US', { timeZone: tzone, dateStyle: 'full' });
-        document.getElementById('time').innerHTML = now.toLocaleString('en-US', { timeZone: tzone, timeStyle: 'medium' });
+        document.getElementById('time').innerHTML = now.toLocaleString('en-US', { timeZone: tzone, timeStyle: 'short', hour12: false });
         setTimeout(updateClock, 1000);
     }
-    readFile('links.md', 'nav');
-    fetch('https://api.weather.gov/gridpoints/BOX/63,50/forecast', {
+    fetch(wurl, {
             method: 'GET'
         })
         .then(function(response) { return response.json(); })
         .then(function(json) {
-            console.log(json.properties.periods[0]);
             now = json.properties.periods[0];
-            forecast = [now.temperature + ' &#176;' + now.temperatureUnit, now.shortForecast].join(' ');
-            updateClock();
             document.getElementById('temp').innerHTML = now.temperature + '&#176;';
             document.getElementById('cond').innerHTML = now.shortForecast;
-            var element = document.getElementById("info");
-            element.classList.remove("hide");
+            wsp = now.windSpeed;
+            document.getElementById('wind').innerHTML = now.windDirection + " " + wsp.toUpperCase();
+        });
+    fetch('https://api.quotable.io/random', {
+            method: 'GET'
+        })
+        .then(function(response) { return response.json(); })
+        .then(function(json) {
+            quote = json.content;
+            author = json.author;
+            document.getElementById('quote').innerHTML = quote;
+            document.getElementById('author').innerHTML = author;
+            updateClock();
         });
     </script>
 </head>
 
 <body>
-    <div class='banner'>
-        <img id='banner' src="blueno.gif">
-    </div>
+    <div class='banner'></div>
     <div class='container'>
-        <div class="row" id='search'>
-            <form action="https://duckduckgo.com/" method="POST">
-                <input id="q" name="q" type="search" placeholder="bellala.org/start">
-            </form>
-        </div>
-        <div class="row hide" id='info'>
-            <div class="time">
-                <h1 id='time'></h1>
-                <p id='date'></p>
+        <div>
+            <div id='search'>
+                <form action="https://duckduckgo.com/" method="POST">
+                    <input id="q" name="q" type="search" placeholder="bellala.org/start">
+                </form>
             </div>
-            <div class="weather">
-                <h1 id="temp"></h1>
-                <p id='cond'></p>
-            </div>
+            <h1 id='time'></h1>
+            <div class='info'><span id='date'></span><i></i><span id='temp'></span><i></i><span id='cond'></span><i></i><span id='wind'></span></div>
         </div>
-        <div class="row">
-            <nav id='nav'></nav>
+        <div>
+            <blockquote cite="https://quotable.io"><q id='quote'></q>
+                <p><small id='author'></small></p>
+            </blockquote>
+        </div>
+        <div>
+            <nav>
+                <a href="https://canvas.brown.edu/">Canvas</a>
+                <a href="https://www.gradescope.com/">Gradescope</a>
+                <a href="https://get.cbord.com/brown">GET</a>
+                <a href="https://www.overleaf.com/">Overleaf</a>
+            </nav>
         </div>
     </div>
 </body>
