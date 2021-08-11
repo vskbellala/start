@@ -152,7 +152,7 @@
             display: flex;
             justify-content: space-between;
         }
-        div.info > i{
+        div.info > span{
             border-left: 2px solid var(--color-txt);
             border-right: 2px solid var(--color-txt);
             margin: 0 0.5rem;
@@ -162,7 +162,7 @@
                 height: initial;
                 width:  initial;
             }
-            div.info > i,#search{
+            div.info > span,#search{
                 display:  none;
             }
             body,div.info{
@@ -220,7 +220,7 @@
                 </form>
             </div>
             <h1 id='time'></h1>
-            <div class='info'><span id='date'></span><i></i><span id='temp'></span><i></i><span id='cond'></span><i></i><span id='wind'></span></div>
+            <div class='info'><p id='date'></p><span></span><p id='temp'></p><span></span><p id='cond'></p><span></span><p id='wind'></p></div>
         </div>
         <div>
             <blockquote cite="https://quotable.io"><q id='quote'></q>
