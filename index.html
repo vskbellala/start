@@ -204,7 +204,7 @@ function updateClock(tzone) {
     });
     setTimeout(updateClock, 1000,tzone);
 }
-const config = fetch('/img/config.json', {
+const config = fetch('/start/config.json', {
         method: 'GET'
     })
     .then(function(response) {
