@@ -1,0 +1,11 @@
+{
+    "image" : "banner.webp",
+    "tzone" : "America/New_York",
+    "wzone" : "63,50",
+    "links" : [
+        ["Canvas","https://canvas.brown.edu/"],
+        ["Gradescope","https://www.gradescope.com/"],
+        ["GET","https://get.cbord.com/brown"],
+        ["Overleaf","https://www.overleaf.com/"]
+    ]
+}
