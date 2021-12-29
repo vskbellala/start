@@ -56,7 +56,10 @@
     }
     html {
         align-items: center;
-        background-color: var(--color-bg);
+        background-image: linear-gradient( 68.4deg,  rgba(248,182,204,1) 0.5%, rgba(192,198,230,1) 49%, rgba(225,246,240,1) 99.8% );
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         color: var(--color-txt);
         display: flex;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
@@ -69,12 +72,15 @@
     body{
         display: grid;
         grid-template-columns: 1fr 4fr;
-        width: 50rem;
+        width: 52rem;
+        padding: 2rem;
         margin: 1rem;
         /*max-height: 30rem; */
         grid-column-gap: 2rem;
         justify-items: center;
         align-items: center;
+        background-color: var(--color-bg);
+        border-radius: 0.25rem;
     }
     .banner{
         grid-column-start: 1;
@@ -177,7 +183,10 @@
     @media only screen and (max-width: 768px){
         html,body{
             height: initial;
-            width:  initial;
+            width: initial;
+            padding: 0;
+            background-image:  none;
+            background-color: var(--color-bg);
         }
         div.info > span,#search{
             display:  none;
@@ -205,7 +214,7 @@ function updateClock(tzone) {
     });
     setTimeout(updateClock, 1000,tzone);
 }
-const config = fetch('/start/config.json', {
+const config = fetch('https://bellala.org/start/config.json', {
         method: 'GET'
     })
     .then(function(response) {
