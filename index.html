@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>~</title>
-    <meta name="theme-color" content="#FFF">
+    <meta name="theme-color" content="#f8f9fa">
     <link rel="icon" href='//bellala.org/favicons/icon.svg?v=PYAnWEX76A'>
     <link rel="mask-icon" href="//bellala.org/favicons/icon.svg?v=PYAnWEX76A" color="#8fbcbb">
     <link rel="apple-touch-icon" href="//bellala.org/favicons/apple-touch-icon.png?v=PYAnWEX76A">
@@ -15,48 +15,32 @@
     <meta name="apple-mobile-web-app-title" content="~">
     <meta name="application-name" content="~">
     <style>
-        :root {
+    :root {
         /* Colors - Nord */
-        --white: #FFF;
-        --nord0: #2e3440;
-        --nord1: #3b4252;
-        --nord2: #434c5e;
-        --nord3: #4c566a;
-        --nord4: #d8dee9;
-        --nord5: #e5e9f0;
-        --nord6: #eceff4;
-        --nord7: #8fbcbb;
-        --nord8: #88c0d0;
-        --nord9: #81a1c1;
-        --nord10: #5e81ac;
-        --nord11: #bf616a;
-        --nord12: #d08770;
-        --nord13: #ebcb8b;
-        --nord14: #a3be8c;
-        --nord15: #b48ead;
-
-        /* defaults */
-        --color-bg: var(--white);
-        --color-txt: var(--nord0);
-        /*--color-txt-accent: var(--nord15);*/
-        --color-accent: var(--nord10);
-        --color-link: var(--color-accent);
-        /*--color-opa: rgba(216, 222, 233,0.6);*/
-        /*--image:  url(banner.webp);*/
+        --white: #f8f9fa;
+        --black: #212529;
+        --color-bg: #f8f9fa;
+        --color-bg-emphasis: #e9ecef;
+        --color-txt: #495057;
+        --color-txt-emphasis: #343a40;
+        --color-link: #7474C1;
+        --color-main: var(--color-link);
+        --color-icon: var(--color-bg-emphasis);
+        --color-highlight: #FDDD13;
+        --color-nav: #00B2A9;
+        /* Other Stuff */
+        --ani-time: 250ms;
+        --image: url("/img/film/nature/DDD2249_DDD2249-R1-023-10.jpg");
+/*        --image: url("blueno.gif");*/
     }
 
     *{
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        /*border: 2px solid #FFF;*/
     }
     html {
         align-items: center;
-        background-image: linear-gradient( 68.4deg,  rgba(248,182,204,1) 0.5%, rgba(192,198,230,1) 49%, rgba(225,246,240,1) 99.8% );
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
         color: var(--color-txt);
         display: flex;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
@@ -65,24 +49,16 @@
         height: 100%;
         justify-content: center;
         text-align: left;
+        background-color: black;
     }
     body{
         display: grid;
-        grid-template-columns: 1fr 4fr;
-        width: 52rem;
-        padding: 2rem;
-        margin: 1rem;
-        /*max-height: 30rem; */
-        grid-column-gap: 2rem;
+        grid-template-columns: 1fr 2fr;
+        width: 100vw;
+        height: 100vh;
         justify-items: center;
         align-items: center;
         background-color: var(--color-bg);
-        border-radius: 0.5rem;
-        background: rgba( 255, 255, 255, 0.4 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 5px );
-        -webkit-backdrop-filter: blur( 5px );
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
     .banner{
         grid-column-start: 1;
@@ -91,117 +67,70 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
-        border-radius: 0.25rem;
-        /*background-image: var(--image);*/
+        background-image: var(--image) !important;
     }
     .container{
         grid-column-start: 2;
         width: 100%;
-    }
-    #search{
-        /*text-align: left;*/
-        justify-content: initial;
-        font-family: monospace;
-        font-size:0.75rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     a {
         color: inherit;
         text-decoration: none;
         outline: none;
+        transition: color var(--ani-time) ease;
     }
     a:focus,
     a:hover {
         color: var(--color-link);
     }
-    h1{
+    span#time, span#date{
         font-size: 3.5rem;
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+        display: block;
+        text-align: center;
     }
-    nav{
-        display: flex;
-        justify-content: space-around;
-    }
-    #quote{
-        quotes: '"' '"';
-        font-size: 1rem;
+    span#date {
+        font-size: inherit;
     }
     form{
+        font-size: 0.75rem;
+        margin: 0.5rem auto;
         width: 100%;
     }
     form input[type="search"] {
       background-color: transparent;
-      border: none;
-      font: inherit;
       color: inherit;
-      text-align: left;
-      width: 100%;
+      text-align: center;
+      width: 75%;
       outline: none;
-      caret-color: var(--color-accent);
+      caret-color: var(--color-main);
+      justify-content: initial;
+      font-family: monospace;
+      border: 2px solid var(--color-txt-emphasis);
+      border-radius: 0.25rem;
+      padding: 0.25rem;
+      margin: 0 auto;
+      display: block;
     }
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: var(--color-txt);
         opacity: 1;  /*Firefox */
     }
-    blockquote{
-        padding: 0.75rem;
-        padding-right: 0;
-        margin-left: 4px;
-        position: relative;
-    }
-
-    blockquote::before, div.info > span::before{
-        content: '';
-        height: 100%;
-        background: var(--color-txt);
-        width: 4px;
-        position: absolute;
-        border-radius: 2px;
-        top: 0;
-        left: -4px;
-    }
-    #author{
-        color: var(--color-accent);
-    }
-    #author::before{
-        content: "—";
-        margin-right: 0.5rem;
-        margin-left: 1.25rem;
-    }
-
-    .container > div{
-        padding: 0.5rem 0;
-    }
-    div.info{
-        display: flex;
-        justify-content: space-between;
-    }
-    div.info > span{
-        /*border-left: 2px solid var(--color-txt);*/
-        /*border-right: 2px solid var(--color-txt);*/
-        /*padding-left: 4px;*/
-        position: relative;
-        margin: 0 0.5rem;
-        margin-left:  calc(0.5rem + 4px);
-    }
     @media only screen and (max-width: 768px){
-        html,body{
-            height: initial;
-            width: initial;
-            padding: 0;
-            /*background-image:  none;*/
-            /*background-color: var(--color-bg);*/
-            margin: 0;
-            box-shadow: none;
-        }
         body{
             padding: 1rem;
-        }
-        div.info > span,#search{
-            display:  none;
-        }
-        body,div.info{
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
+
         div.banner{
             height: 20vh;
         }
@@ -210,92 +139,33 @@
     <script type="text/javascript">
     function updateClock(tzone) {
         var now = new Date(); // current date
-        document.getElementById('date').innerHTML = now.toLocaleString('en-US', {
+        document.getElementById('date').innerHTML = now.toLocaleDateString('en-US', {
             timeZone: tzone,
-            dateStyle: 'full'
+            weekday: 'short',
+            month: 'long',
+            day: 'numeric'
         });
-        document.getElementById('time').innerHTML = now.toLocaleString('en-US', {
+        document.getElementById('time').innerHTML = now.toLocaleTimeString('en-US', {
             timeZone: tzone,
-            timeStyle: 'short',
-            hour12: false
-        });
+            timeStyle: 'medium'
+        }).replace("AM", "").replace("PM", "");
         setTimeout(updateClock, 1000, tzone);
     }
-    const config = fetch('https://bellala.org/start/config.json', {
-            method: 'GET'
-        })
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(json) {
-            // Get the root element
-            banner = document.getElementById('banner');
-            banner.style.backgroundImage = "url(" + json.image + ")";
-            links = json.links;
-            for (let i = 0; i < links.length; i++) {
-                document.getElementById('nav').innerHTML += "<a href=" + links[i][1] + ">" + links[i][0] + "</a>"
-            }
-            let tzone = json.tzone; //Eastern Time
-            let wzone = json.wzone; //Providence
-            let wurl = 'https://api.weather.gov/gridpoints/BOX/' + wzone + '/forecast';
-            return [tzone, wurl];
-        });
-    config.then(r => {
-        fetch(r[1], {
-                method: 'GET'
-            })
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                now = json.properties.periods[0];
-                document.getElementById('temp').innerHTML = now.temperature + '&#176;';
-                document.getElementById('cond').innerHTML = now.shortForecast;
-                wsp = now.windSpeed;
-                document.getElementById('wind').innerHTML = now.windDirection + " " + wsp.toUpperCase();
-            });
-        fetch('https://api.quotable.io/random', {
-                method: 'GET'
-            })
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                quote = json.content;
-                author = json.author;
-                document.getElementById('quote').innerHTML = quote;
-                document.getElementById('author').innerHTML = author;
-                updateClock(r[0]);
-            });
-    });
+    window.addEventListener('load',
+        function() {
+            updateClock("America/New_York");
+        }, false);
     </script>
 </head>
 
 <body>
     <div class='banner' id="banner"></div>
     <div class='container'>
-        <div>
-            <div id='search'>
-                <form action="https://duckduckgo.com/" method="POST">
-                    <input id="q" name="q" type="search" placeholder="bellala.org/start">
-                </form>
-            </div>
-            <h1 id='time'></h1>
-            <div class='info'>
-                <p id='date'></p><span></span>
-                <p id='temp'></p><span></span>
-                <p id='cond'></p><span></span>
-                <p id='wind'></p>
-            </div>
-        </div>
-        <div>
-            <blockquote cite="https://quotable.io"><q id='quote'></q>
-                <p><small id='author'></small></p>
-            </blockquote>
-        </div>
-        <div>
-            <nav id="nav"></nav>
-        </div>
+        <span id='time'></span>
+        <span id='date'></span>
+        <form action="https://duckduckgo.com/" method="POST">
+            <input id="q" name="q" type="search" placeholder="bellala.org/start" autocomplete="off">
+        </form>
     </div>
 </body>
 
