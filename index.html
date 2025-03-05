@@ -193,10 +193,14 @@
         font-size: 1rem;
         border-radius: 0.25rem;
         transition: background-color var(--ani-time) ease;
+        outline: none;
+        box-shadow: none;
       }
 
       .controls button:hover,
-      .modalButton:hover {
+      .modalButton:hover,
+      .controls button:focus,
+      .modalButton:focus {
         background-color: transparent;
       }
 
@@ -227,6 +231,7 @@
         padding: 1rem;
         border-radius: 0.25rem;
         text-align: center;
+        margin: 0.5rem;
       }
       .modal-setting {
         margin: 0.5rem;
