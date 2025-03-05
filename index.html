@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="EN">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>~</title>
-    <meta name="theme-color" content="#212529">
-    <link rel="icon" href='//bellala.org/favicons/icon.svg?v=PYAnWEX76A'>
-    <link rel="mask-icon" href="//bellala.org/favicons/icon.svg?v=PYAnWEX76A" color="#8fbcbb">
-    <link rel="apple-touch-icon" href="//bellala.org/favicons/apple-touch-icon.png?v=PYAnWEX76A">
-    <link rel="manifest" href="//bellala.org/favicons/manifest.json?v=PYAnWEX76A">
-    <link rel="shortcut icon" sizes='32x32' href='//bellala.org/favicons/favicon.ico?v=PYAnWEX76A'>
-    <meta name="apple-mobile-web-app-title" content="~">
-    <meta name="application-name" content="~">
+    <meta name="theme-color" content="#212529" />
+    <link
+      rel="icon"
+      href="https://bellala.org/favicons/icon.svg?v=PYAnWEX76A"
+    />
+    <link
+      rel="mask-icon"
+      href="https://bellala.org/favicons/icon.svg?v=PYAnWEX76A"
+      color="#8fbcbb"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://bellala.org/favicons/apple-touch-icon.png?v=PYAnWEX76A"
+    />
+    <link
+      rel="manifest"
+      href="https://bellala.org/favicons/manifest.json?v=PYAnWEX76A"
+    />
+    <link
+      rel="shortcut icon"
+      sizes="32x32"
+      href="https://bellala.org/favicons/favicon.ico?v=PYAnWEX76A"
+    />
+    <meta name="apple-mobile-web-app-title" content="~" />
+    <meta name="application-name" content="~" />
     <style>
-    :root {
+      :root {
         /* Colors - Nord */
         --white: #f8f9fa;
         --black: #212529;
@@ -23,35 +39,36 @@
         --color-bg-emphasis: #495057;
         --color-txt: #e9ecef;
         --color-txt-emphasis: #f1f3f5;
-        --color-link: #7474C1;
+        --color-link: #7474c1;
         --color-main: var(--color-link);
         --color-icon: var(--color-bg-emphasis);
-        --color-highlight: #FDDD13;
-        --color-nav: #00B2A9;
+        --color-highlight: #fddd13;
+        --color-nav: #00b2a9;
         /* Other Stuff */
         --ani-time: 250ms;
-        --image: url("/img/film/nola/000028070004.jpg");
-/*        --image: url("blueno.gif");*/
-    }
+        --image: url("https://bellala.org/img/film/nola/000028070004.jpg");
+        /*        --image: url("blueno.gif");*/
+      }
 
-    *{
+      * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-    }
-    html {
+      }
+      html {
         align-items: center;
         color: var(--color-txt);
         display: flex;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
         line-height: 1.4;
         font-size: 1.3rem;
         height: 100%;
         justify-content: center;
         text-align: left;
         background-color: black;
-    }
-    body{
+      }
+      body {
         display: grid;
         grid-template-columns: 1fr 2fr;
         width: 100vw;
@@ -59,8 +76,8 @@
         justify-items: center;
         align-items: center;
         background-color: var(--color-bg);
-    }
-    .banner{
+      }
+      .banner {
         grid-column-start: 1;
         width: 100%;
         height: 100%;
@@ -68,8 +85,8 @@
         background-size: cover;
         background-position: center center;
         background-image: var(--image) !important;
-    }
-    .container{
+      }
+      .container {
         grid-column-start: 2;
         width: 100%;
         padding: 1rem;
@@ -77,96 +94,393 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-    a {
+      }
+      a {
         color: inherit;
         text-decoration: none;
         outline: none;
         transition: color var(--ani-time) ease;
-    }
-    a:focus,
-    a:hover {
+      }
+      a:focus,
+      a:hover {
         color: var(--color-link);
-    }
-    span#time, span#date{
+      }
+      span#time,
+      span#date {
         font-size: 3.5rem;
         font-weight: normal;
         margin: 0;
         padding: 0;
         display: block;
         text-align: center;
-    }
-    span#date {
+      }
+      span#date {
         font-size: inherit;
-    }
-    form{
+      }
+      form {
         font-size: 0.75rem;
         margin: 0.5rem auto;
         width: 100%;
-    }
-    form input[type="search"] {
-      background-color: transparent;
-      color: inherit;
-      text-align: center;
-      min-width: 50%;
-      outline: none;
-      caret-color: var(--color-main);
-      justify-content: initial;
-      font-family: monospace;
-      border: 2px solid var(--color-txt-emphasis);
-      border-radius: 0.25rem;
-      padding: 0.25rem;
-      margin: 0 auto;
-      display: block;
-    }
-    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      }
+      form input[type="search"],
+      input[type="number"] {
+        background-color: transparent;
+        color: inherit;
+        text-align: center;
+        min-width: 50%;
+        outline: none;
+        caret-color: var(--color-main);
+        justify-content: initial;
+        font-family: monospace;
+        border: 2px solid var(--color-txt-emphasis);
+        border-radius: 0.25rem;
+        padding: 0.25rem;
+        margin: 0 auto;
+        display: block;
+      }
+
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        display: inline-block;
+        font-size: 1rem;
+        -moz-appearance: textfield;
+      }
+
+      ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: var(--color-txt);
-        opacity: 1;  /*Firefox */
-    }
-    @media only screen and (max-width: 768px){
-        body{
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        opacity: 1; /*Firefox */
+      }
+      @media only screen and (max-width: 768px) {
+        body {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        div.banner{
-            height: 20vh;
+        div.banner {
+          height: 20vh;
         }
-    }
-</style>
+      }
+
+      .pomodoro-container {
+        text-align: center;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+        border: 2px solid var(--color-bg-emphasis);
+        border-radius: 0.25rem;
+      }
+      .timer {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .controls button,
+      .modalButton {
+        margin: 0.25rem;
+        padding: 0.5rem;
+        border: 2px solid var(--color-button);
+        cursor: pointer;
+        background-color: var(--color-button);
+        color: white;
+        font-size: 1rem;
+        border-radius: 0.25rem;
+        transition: background-color var(--ani-time) ease;
+      }
+
+      .controls button:hover,
+      .modalButton:hover {
+        background-color: transparent;
+      }
+
+      .settings {
+        --color-button: var(--color-bg-emphasis);
+      }
+
+      .mainControls {
+        --color-button: var(--color-main);
+      }
+      .breakType {
+        --color-button: var(--color-nav);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: var(--color-bg);
+        padding: 1rem;
+        border-radius: 0.25rem;
+        text-align: center;
+      }
+      .modal-setting {
+        margin: 0.5rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+    </style>
     <script type="text/javascript">
-    function updateClock(tzone) {
+      function updateClock(tzone) {
         var now = new Date(); // current date
-        document.getElementById('date').innerHTML = now.toLocaleDateString('en-US', {
+        document.getElementById("date").innerHTML = now.toLocaleDateString(
+          "en-US",
+          {
             timeZone: tzone,
-            weekday: 'short',
-            month: 'long',
-            day: 'numeric'
-        });
-        document.getElementById('time').innerHTML = now.toLocaleTimeString('en-US', {
+            weekday: "short",
+            month: "long",
+            day: "numeric",
+          }
+        );
+        document.getElementById("time").innerHTML = now
+          .toLocaleTimeString("en-US", {
             timeZone: tzone,
-            timeStyle: 'medium'
-        }).replace("AM", "").replace("PM", "");
+            timeStyle: "medium",
+          })
+          .replace("AM", "")
+          .replace("PM", "");
         setTimeout(updateClock, 1000, tzone);
-    }
-    window.addEventListener('load',
-        function() {
-            updateClock("America/New_York");
-        }, false);
+      }
+
+      let timeLeft = 1500,
+        timer;
+      let mode = "work";
+      let times = { work: 1500, shortBreak: 300, longBreak: 900 };
+      let pomodoroCounter = 0;
+      let pomodorosBeforeLongBreak = 4;
+      let isRunning = false;
+
+      function updateDisplay() {
+        const minutes = Math.floor(timeLeft / 60)
+          .toString()
+          .padStart(2, "0");
+        const seconds = (timeLeft % 60).toString().padStart(2, "0");
+        document.getElementById(
+          "timer-display"
+        ).innerText = `${minutes}:${seconds}`;
+      }
+
+      function toggleTimer() {
+        if (isRunning) {
+          pauseTimer();
+        } else {
+          startTimer();
+        }
+      }
+
+      function startTimer() {
+        if (!timer) {
+          timer = setInterval(() => {
+            if (timeLeft > 0) {
+              timeLeft--;
+              updateDisplay();
+            } else {
+              clearInterval(timer);
+              timer = null;
+              isRunning = false;
+              document.getElementById("startPauseBtn").innerText = "Start";
+              handleSessionEnd();
+            }
+          }, 1000);
+          isRunning = true;
+          document.getElementById("startPauseBtn").innerText = "Pause";
+        }
+      }
+
+      function pauseTimer() {
+        clearInterval(timer);
+        timer = null;
+        isRunning = false;
+        document.getElementById("startPauseBtn").innerText = "Start";
+      }
+
+      function resetTimer() {
+        pauseTimer();
+        timeLeft = times[mode];
+        updateDisplay();
+      }
+
+      function setMode(newMode) {
+        mode = newMode;
+        resetTimer();
+      }
+
+      function handleSessionEnd() {
+        document.getElementById("alertSound").play();
+
+        // After each Pomodoro, switch to the appropriate break.
+        if (mode === "work") {
+          pomodoroCounter++;
+          if (pomodoroCounter >= pomodorosBeforeLongBreak) {
+            setMode("longBreak");
+            pomodoroCounter = 0; // Reset the Pomodoro counter after long break
+          } else {
+            setMode("shortBreak");
+          }
+        } else if (mode === "shortBreak" || mode === "longBreak") {
+          setMode("work"); // Go back to work after a break
+        }
+
+        // We do not automatically start the next timer, just set the mode
+        document.getElementById("startPauseBtn").innerText = "Start";
+      }
+
+      function endPomodoro() {
+        pauseTimer();
+        handleSessionEnd();
+      }
+
+      function openModal() {
+        document.getElementById("timeModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("timeModal").style.display = "none";
+      }
+
+      function closeModal() {
+        document.getElementById("timeModal").style.display = "none";
+      }
+
+      function saveTimes() {
+        // Get the values from the modal inputs
+        times.work = document.getElementById("workTime").value * 60;
+        times.shortBreak = document.getElementById("shortBreakTime").value * 60;
+        times.longBreak = document.getElementById("longBreakTime").value * 60;
+        pomodorosBeforeLongBreak =
+          document.getElementById("pomodoroCount").value;
+
+        // Save to localStorage
+        localStorage.setItem(
+          "pomodoroSettings",
+          JSON.stringify({
+            times: times,
+            pomodorosBeforeLongBreak: pomodorosBeforeLongBreak,
+          })
+        );
+
+        resetTimer();
+        closeModal();
+      }
+
+      // Function to load settings from localStorage
+      function loadSettings() {
+        const savedSettings = localStorage.getItem("pomodoroSettings");
+        if (savedSettings) {
+          const {
+            times: savedTimes,
+            pomodorosBeforeLongBreak: savedPomodorosBeforeLongBreak,
+          } = JSON.parse(savedSettings);
+
+          // Apply saved settings if they exist
+          console.log("Loaded saved settings:", savedSettings); // Debugging line
+          times = savedTimes;
+          pomodorosBeforeLongBreak = savedPomodorosBeforeLongBreak;
+        } else {
+          console.log("No saved settings found."); // Debugging line
+        }
+      }
+
+      window.addEventListener("click", function (event) {
+        const modal = document.getElementById("timeModal");
+        const modalContent = document.querySelector(".modal-content");
+        if (event.target === modal) {
+          closeModal(); // Close modal if the click is outside the modal content
+        }
+      });
+      window.addEventListener(
+        "load",
+        function () {
+          updateClock("America/New_York");
+          loadSettings(); // Ensure settings are loaded on page load
+          resetTimer(); // Update the display
+        },
+        false
+      );
     </script>
-</head>
+  </head>
 
-<body>
-    <div class='banner' id="banner"></div>
-    <div class='container'>
-        <span id='time'></span>
-        <span id='date'></span>
-        <form action="https://duckduckgo.com/" method="POST">
-            <input id="q" name="q" type="search" placeholder="bellala.org/start" autocomplete="off">
-        </form>
+  <body>
+    <div class="banner" id="banner"></div>
+    <div class="container">
+      <span id="time"></span>
+      <span id="date"></span>
+      <form action="https://duckduckgo.com/" method="POST">
+        <input
+          id="q"
+          name="q"
+          type="search"
+          placeholder="bellala.org/start"
+          autocomplete="off"
+        />
+      </form>
+      <div class="pomodoro-container">
+        <div class="timer" id="timer-display"></div>
+        <div class="controls">
+          <p class="mainControls">
+            <button id="startPauseBtn" onclick="toggleTimer()">Start</button>
+            <button onclick="resetTimer()">Reset</button>
+            <button onclick="endPomodoro()">End Pomodoro</button>
+          </p>
+          <p class="breakType">
+            <button onclick="setMode('work')">Work</button>
+            <button onclick="setMode('shortBreak')">Short Break</button>
+            <button onclick="setMode('longBreak')">Long Break</button>
+          </p>
+          <p class="settings">
+            <button onclick="openModal()">Settings</button>
+          </p>
+        </div>
+      </div>
     </div>
-</body>
 
+    <div id="timeModal" class="modal">
+      <div class="modal-content">
+        <h2>Edit Pomodoro Settings</h2>
+        <div class="modal-setting">
+          <label>Work (min):</label>
+          <input type="number" id="workTime" value="25" />
+        </div>
+        <div class="modal-setting">
+          <label>Short Break (min):</label>
+          <input type="number" id="shortBreakTime" value="5" />
+        </div>
+        <div class="modal-setting">
+          <label>Long Break (min):</label>
+          <input type="number" id="longBreakTime" value="15" />
+        </div>
+        <div class="modal-setting">
+          <label>Pomodoros before Long Break:</label>
+          <input type="number" id="pomodoroCount" value="4" />
+        </div>
+        <button class="modalButton mainControls" onclick="saveTimes()">
+          Save
+        </button>
+        <button class="modalButton settings" onclick="closeModal()">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <audio
+      id="alertSound"
+      src="https://www.myinstants.com/media/sounds/alarm.mp3"
+    ></audio>
+  </body>
 </html>
