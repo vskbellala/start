@@ -180,7 +180,11 @@
       }
       .timer {
         font-size: 2.5rem;
-        margin-bottom: 0.5rem;
+        margin: 0.5rem auto;
+      }
+      .complete {
+        font-size: 1rem;
+        margin: 0.5rem auto;
       }
       .controls button,
       .modalButton {
@@ -290,6 +294,8 @@
         document.getElementById(
           "timer-display"
         ).innerText = `${minutes}:${seconds}`;
+        document.getElementById("pomodoroCounter").textContent = pomodoroCounter;
+        document.getElementById("pomodorosBeforeLongBreak").textContent = pomodorosBeforeLongBreak;
       }
 
       function toggleTimer() {
@@ -448,6 +454,7 @@
       </form>
       <div class="pomodoro-container">
         <div class="timer" id="timer-display"></div>
+        <div class="complete">Pomodoros Completed: <span id="pomodoroCounter"></span> / <span id="pomodorosBeforeLongBreak"></span></div>
         <div class="controls">
           <p class="mainControls">
             <button id="startPauseBtn" onclick="toggleTimer()">Start</button>
@@ -497,6 +504,7 @@
     <audio
       id="alertSound"
       src="https://www.myinstants.com/media/sounds/alarm.mp3"
+      volume="1.0"
     ></audio>
   </body>
 </html>
